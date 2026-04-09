@@ -13,6 +13,7 @@ package net.chumbucket.huskhomesmenus;
 import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.user.OnlineUser;
+import net.william278.huskhomes.util.TransactionResolver;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -169,6 +170,7 @@ public final class HomesCommandInterceptListener implements Listener {
                     api.teleportBuilder()
                             .teleporter(user)
                             .target(match)
+                            .actions(TransactionResolver.Action.HOME_TELEPORT)
                             .toTimedTeleport()
                             .execute();
                 } catch (Throwable t) {

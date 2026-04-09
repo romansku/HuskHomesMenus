@@ -13,6 +13,7 @@ package net.chumbucket.huskhomesmenus;
 import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Warp;
 import net.william278.huskhomes.user.OnlineUser;
+import net.william278.huskhomes.util.TransactionResolver;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -394,6 +395,7 @@ public final class WarpsMenu implements Listener {
                     api.teleportBuilder()
                             .teleporter(user)
                             .target(targetWarp)
+                            .actions(TransactionResolver.Action.WARP_TELEPORT)
                             .toTimedTeleport()
                             .execute();
 
